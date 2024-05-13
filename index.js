@@ -15,11 +15,11 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
-app.get("/signup",(req,res)=>{
+app.get("/",(req,res)=>{
     res.render("signup");
 })
 
-app.post("/signup", async(req,res)=>{
+app.post("/", async(req,res)=>{
     let data = req.body;
     const auth = await User.findOne({name : req.body.name});
     if(!auth){
